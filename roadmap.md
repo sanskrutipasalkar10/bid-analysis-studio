@@ -1,0 +1,4 @@
+- [ ] Redesign tender dashboard to match the blue, navy, and white reference theme.
+- [ ] Redesign tender upload view in the same theme.
+- [ ] Add a matching company profile view and document analysis drill-down.
+- [ ] Verify desktop and mobile navigation and visible interactions.

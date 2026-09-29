@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep tender preview data in a shared client-safe module, and use separate TanStack routes for dashboard, upload, profiles, and analysis so each screen is linkable without implying a live processing backend.
