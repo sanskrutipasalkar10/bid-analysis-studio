@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProfilesRouteImport } from './routes/profiles'
+import { Route as UploadRouteImport } from './routes/upload'
+import { Route as TendersIdRouteImport } from './routes/tenders.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfilesRoute = ProfilesRouteImport.update({
+  id: '/profiles',
+  path: '/profiles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UploadRoute = UploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TendersIdRoute = TendersIdRouteImport.update({
+  id: '/tenders/$id',
+  path: '/tenders/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/profiles': typeof ProfilesRoute
+  '/upload': typeof UploadRoute
+  '/tenders/$id': typeof TendersIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/profiles': typeof ProfilesRoute
+  '/upload': typeof UploadRoute
+  '/tenders/$id': typeof TendersIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/profiles': typeof ProfilesRoute
+  '/upload': typeof UploadRoute
+  '/tenders/$id': typeof TendersIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/profiles' | '/upload' | '/tenders/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/profiles' | '/upload' | '/tenders/$id'
+  id: '__root__' | '/' | '/profiles' | '/upload' | '/tenders/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProfilesRoute: typeof ProfilesRoute
+  UploadRoute: typeof UploadRoute
+  TendersIdRoute: typeof TendersIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profiles': {
+      id: '/profiles'
+      path: '/profiles'
+      fullPath: '/profiles'
+      preLoaderRoute: typeof ProfilesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upload': {
+      id: '/upload'
+      path: '/upload'
+      fullPath: '/upload'
+      preLoaderRoute: typeof UploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tenders/$id': {
+      id: '/tenders/$id'
+      path: '/tenders/$id'
+      fullPath: '/tenders/$id'
+      preLoaderRoute: typeof TendersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProfilesRoute: ProfilesRoute,
+  UploadRoute: UploadRoute,
+  TendersIdRoute: TendersIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
