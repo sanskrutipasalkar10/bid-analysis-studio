@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep tender preview data in a shared client-safe module, and use separate TanStack routes for dashboard, upload, profiles, and analysis so each screen is linkable without implying a live processing backend.
+- Keep the analysis tab hierarchy and illustrative content in a client-safe feature module; it lets all four views share one route without suggesting that sample findings came from a PDF.
