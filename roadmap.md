@@ -2,3 +2,5 @@
 - [x] Redesign tender upload view in the same theme.
 - [x] Add a matching company profile view and document analysis drill-down.
 - [x] Verify desktop and mobile navigation and visible interactions.
+- [ ] Redesign the analysis screen with the existing main tabs and nested views in the blue-and-white theme.
+- [ ] Verify every analysis tab and sub-tab on desktop and mobile.
